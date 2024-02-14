@@ -1,0 +1,15 @@
+<p>display works!</p>
+<ul>
+<div *ngFor="let item of List;let i=index">
+    <li>{{item.name}}</li>
+ <!-- <button [routerLink]="['/movies',i,item.name]" routerLinkActive="router-link-active" >Description</button> -->
+ <span><button [routerLink]="['/names']" routerLinkActive="router-link-active"[queryParams] ="{page:1,orderBy:'asc'}">Touch</button></span>
+ 
+</div>
+<br>
+<button  (click)="onSubmit()" >Final Submit</button><br>
+</ul>
+<div>
+<p *ngFor="let item of posts">{{item.postList}} {{item.id}}</p>
+<button (click)="addnewdata()">add</button>
+</div>

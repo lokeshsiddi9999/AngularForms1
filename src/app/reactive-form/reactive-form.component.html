@@ -1,0 +1,48 @@
+<h2>Welocme Lokesh Group of Companies</h2>
+<div class="container mt-5">
+<form [formGroup]="form">
+    <div class="form-group">
+        <label>Full Name:</label>
+        <input
+        type="text"      
+        class="form-control"    
+        formControlName="fullName">
+        <div *ngIf="fullName.errors?.['required']">
+            <div class="alert alert-danger"
+                *ngIf="fullName.touched && fullName.invalid"> Please Enter the Name
+            </div>
+        </div>
+ 
+        <div *ngIf="fullName.errors?.['pattern']">
+            <div class="alert alert-danger"
+                *ngIf="fullName.invalid"> Enter only alphabets
+            </div>
+        </div>
+   
+        <div *ngIf="fullName.errors?.['minlength']">
+            <div class="alert alert-danger"
+                *ngIf="fullName.touched && fullName.invalid"> Please Enter Min 5 characters
+            </div>
+        </div><br>
+ 
+        <label>Email:</label>
+        <input
+        type="email"
+        class="form-control"
+        name="email"
+        formControlName="email">
+        <div class="alert alert-danger"
+            *ngIf="email.touched && email.invalid"> Invalid Email
+        </div>
+ 
+        <label>Address:</label>
+        <textarea
+        type="text"
+        class="form-control"
+        name="address"
+        formControlName="address"></textarea><br>
+   
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+    </div>
+</form>
+</div>
